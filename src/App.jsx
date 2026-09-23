@@ -9,9 +9,9 @@ const Part = ({ part }) => {
 const Content = ({ course }) => {
   return (
     <div>
-      <Part part={course.parts[0]} />
-      <Part part={course.parts[1]} />
-      <Part part={course.parts[2]} />
+      {course.parts.map(part =>
+        <Part key={part.name} part={part} />
+      )}
     </div>
   )
 }
@@ -28,9 +28,10 @@ const App = () => {
   const course = {
     name: 'CSIT327 - Information Management 2',
     parts: [
-      { name: 'CSIT321 - Applications Development and Emerging Technologies', exercises: 3 },
-      { name: 'IT317 - Project Management for IT', exercises: 3 },
-      { name: 'RIZAL031 - The Life and Works of Rizal', exercises: 3 }
+  { name: 'CSIT321 - Applications Development and Emerging Technologies', exercises: 3 },
+  { name: 'IT317 - Project Management for IT', exercises: 3 },
+  { name: 'RIZAL031 - The Life and Works of Rizal', exercises: 3 },
+  { name: 'CSIT340 - Web Development', exercises: 3 }
     ]
   }
 
