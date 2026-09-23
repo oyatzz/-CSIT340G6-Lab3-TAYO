@@ -1,23 +1,23 @@
 const Header = ({ course }) => {
-  return <h1>{course}</h1>
+  return <h1>{course.name}</h1>
 }
 
 const Part = ({ part }) => {
   return <p>{part.name} {part.exercises}</p>
 }
 
-const Content = ({ parts }) => {
+const Content = ({ course }) => {
   return (
     <div>
-      <Part part={parts[0]} />
-      <Part part={parts[1]} />
-      <Part part={parts[2]} />
+      <Part part={course.parts[0]} />
+      <Part part={course.parts[1]} />
+      <Part part={course.parts[2]} />
     </div>
   )
 }
 
-const Total = ({ parts }) => {
-  const total = parts[0].exercises + parts[1].exercises + parts[2].exercises
+const Total = ({ course }) => {
+  const total = course.parts[0].exercises + course.parts[1].exercises + course.parts[2].exercises
   return <p><strong>Total of {total} exercises</strong></p>
 }
 
@@ -33,9 +33,9 @@ const App = () => {
 
   return (
     <div>
-      <Header course={course.name} />
-      <Content parts={course.parts} />
-      <Total parts={course.parts} />
+      <Header course={course} />
+      <Content course={course} />
+      <Total course={course} />
     </div>
   )
 }
