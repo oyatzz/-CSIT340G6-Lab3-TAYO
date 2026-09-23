@@ -17,7 +17,10 @@ const Content = ({ course }) => {
 }
 
 const Total = ({ course }) => {
-  const total = course.parts[0].exercises + course.parts[1].exercises + course.parts[2].exercises
+  let total = 0
+  for (let i = 0; i < course.parts.length; i++) {
+    total += course.parts[i].exercises
+  }
   return <p><strong>Total of {total} exercises</strong></p>
 }
 
